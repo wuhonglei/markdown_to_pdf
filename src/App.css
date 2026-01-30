@@ -1,0 +1,125 @@
+/* CodeMirror 浅色主题覆盖 */
+.editor-wrapper .cm-theme-light,
+.cm-editor {
+  height: 100%;
+}
+.editor-wrapper .cm-editor,
+.editor-wrapper .cm-scroller {
+  background-color: #ffffff;
+}
+.editor-wrapper .cm-content {
+  font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas,
+    monospace;
+  font-size: 14px;
+  padding: 1rem 0;
+}
+
+/* 预览区 Markdown 内容样式（浅色主题） */
+.preview-content {
+  color: #1f2937;
+  line-height: 1.7;
+}
+.preview-content h1 {
+  font-size: 2em;
+  font-weight: 700;
+  margin-top: 0;
+  margin-bottom: 0.5em;
+  padding-bottom: 0.25em;
+  border-bottom: 1px solid #e5e7eb;
+}
+.preview-content h2 {
+  font-size: 1.5em;
+  font-weight: 600;
+  margin-top: 1.5em;
+  margin-bottom: 0.5em;
+  padding-bottom: 0.25em;
+  border-bottom: 1px solid #e5e7eb;
+}
+.preview-content h3 {
+  font-size: 1.25em;
+  font-weight: 600;
+  margin-top: 1.25em;
+  margin-bottom: 0.5em;
+}
+.preview-content p {
+  margin-top: 0;
+  margin-bottom: 1em;
+}
+.preview-content ul,
+.preview-content ol {
+  margin-top: 0;
+  margin-bottom: 1em;
+  padding-left: 1.5em;
+}
+.preview-content li {
+  margin-bottom: 0.25em;
+}
+.preview-content code {
+  background-color: #f3f4f6;
+  color: #1f2937;
+  padding: 0.2em 0.4em;
+  border-radius: 4px;
+  font-size: 0.9em;
+  font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas,
+    monospace;
+}
+.preview-content pre {
+  background-color: #f3f4f6;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 1rem;
+  overflow-x: auto;
+  margin-top: 0;
+  margin-bottom: 1em;
+}
+.preview-content pre code {
+  background: none;
+  padding: 0;
+  font-size: 0.875em;
+}
+.preview-content blockquote {
+  margin: 1em 0;
+  padding-left: 1em;
+  border-left: 4px solid #d1d5db;
+  color: #4b5563;
+}
+.preview-content a {
+  color: #2563eb;
+  text-decoration: underline;
+}
+.preview-content a:hover {
+  color: #1d4ed8;
+}
+.preview-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 1em;
+}
+.preview-content th,
+.preview-content td {
+  border: 1px solid #e5e7eb;
+  padding: 0.5em 0.75em;
+  text-align: left;
+}
+.preview-content th {
+  background-color: #f9fafb;
+  font-weight: 600;
+}
+.preview-content hr {
+  border: none;
+  border-top: 1px solid #e5e7eb;
+  margin: 1.5em 0;
+}
+
+.button-export-pdf {
+  background-color: #b92b1f;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.button-export-pdf:hover {
+  background-color: #9a2419;
+}
