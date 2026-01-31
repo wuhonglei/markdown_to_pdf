@@ -1,10 +1,9 @@
-import { useCallback, useMemo, useRef, useState } from "react";
+import { useCallback, useMemo, useState } from "react";
 import CodeMirror from "@uiw/react-codemirror";
 import { markdown, markdownLanguage } from "@codemirror/lang-markdown";
 import { languages } from "@codemirror/language-data";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
-import html2pdf from "html2pdf.js";
 import "./App.css";
 
 const DEFAULT_MARKDOWN = `# 欢迎使用 Markdown 编辑器
@@ -26,21 +25,9 @@ console.log('Hello, Markdown!')
 
 function App() {
   const [markdownContent, setMarkdownContent] = useState(DEFAULT_MARKDOWN);
-  const previewRef = useRef<HTMLDivElement>(null);
 
   const handleExportPdf = useCallback(() => {
-    const el = previewRef.current;
-    if (!el) return;
-    html2pdf()
-      .set({
-        margin: 10,
-        filename: "markdown-preview.pdf",
-        image: { type: "jpeg", quality: 0.98 },
-        html2canvas: { scale: 2 },
-        jsPDF: { unit: "mm", format: "a4", orientation: "portrait" },
-      })
-      .from(el)
-      .save();
+    window.print();
   }, []);
 
   const markdownExtensions = useMemo(
@@ -50,7 +37,7 @@ function App() {
 
   return (
     <div className="flex h-screen flex-col bg-gray-50">
-      <header className="flex shrink-0 items-center justify-between border-b border-gray-200 bg-white px-4 py-3 shadow-sm">
+      <header className="flex shrink-0 items-center justify-between border-b border-gray-200 bg-white px-4 py-3 shadow-sm print:hidden">
         <div className="flex items-center gap-2">
           <img
             src="/logo.png"
@@ -71,7 +58,7 @@ function App() {
       </header>
 
       <main className="flex min-h-0 flex-1">
-        <section className="flex w-1/2 min-w-0 flex-col border-r border-gray-200 bg-white">
+        <section className="flex w-1/2 min-w-0 flex-col border-r border-gray-200 bg-white print:hidden">
           <div className="editor-wrapper flex-1 overflow-hidden">
             <CodeMirror
               value={markdownContent}
@@ -105,11 +92,8 @@ function App() {
           </div>
         </section>
 
-        <section className="flex w-1/2 min-w-0 flex-col overflow-hidden bg-white">
-          <div
-            ref={previewRef}
-            className="preview-content flex-1 overflow-auto p-6"
-          >
+        <section className="flex w-1/2 min-w-0 flex-1 flex-col overflow-hidden bg-white print:w-full">
+          <div className="preview-content flex-1 overflow-auto p-6">
             <ReactMarkdown remarkPlugins={[remarkGfm]}>
               {markdownContent}
             </ReactMarkdown>
