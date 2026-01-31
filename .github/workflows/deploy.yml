@@ -11,7 +11,7 @@ jobs:
     steps:
     # 1. 检出代码
     - name: Checkout code
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
     
     # 2. 设置 Node.js 环境（如果是 JavaScript 项目）
     - name: Setup Node.js
@@ -34,7 +34,7 @@ jobs:
         host: ${{ secrets.SERVER_HOST }}
         username: ${{ secrets.SERVER_USERNAME }}
         key: ${{ secrets.SSH_PRIVATE_KEY }}
-        port: ${{ secrets.SERVER_PORT || 22 }}
-        source: "dist/*"
-        target: "/root/nginx-proxy-manager/data/html/markdown_to_pdf/dist"
+        port: ${{ secrets.SERVER_PORT || '22' }}
+        source: "dist"
+        target: "/root/nginx-proxy-manager/data/html/markdown_to_pdf/"
         strip_components: 1
