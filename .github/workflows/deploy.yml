@@ -15,9 +15,9 @@ jobs:
     
     # 2. 设置 Node.js 环境（如果是 JavaScript 项目）
     - name: Setup Node.js
-      uses: actions/setup-node@v3
+      uses: actions/setup-node@v4
       with:
-        node-version: '22'
+        node-version: '22.11'
         cache: 'npm'
     
     # 3. 安装依赖并构建
